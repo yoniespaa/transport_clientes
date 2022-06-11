@@ -1,0 +1,87 @@
+﻿@model TransPortClientes.Models.Solicitudes_Transporte_Detalle
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<TransPortClientes.Models.Solicitudes_Transporte_Detalle> std = ViewBag.detalle;
+}
+
+<h2>Agregar Detalle</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Detalles de la solicitud</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+      
+        <div class="form-group" hidden>
+            @Html.LabelFor(model => model.id_solicitud_transporte, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.id_solicitud_transporte, new { htmlAttributes = new { @class = "form-control", @Value=ViewBag.id_solicitud } })
+                @Html.ValidationMessageFor(model => model.id_solicitud_transporte, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", @Id="Descripcion", @required="required" } })
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Observaciones, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Observaciones, new { htmlAttributes = new { @class = "form-control", @Id="Observaciones", @required = "required" } })
+                @Html.ValidationMessageFor(model => model.Observaciones, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Agregar" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class="btn btn-primary">
+    @Html.ActionLink("Regresar", "Index", null,new {@Style="color:white" })
+</div><br /><br />
+<table class="table table-responsive table-bordered">
+    <tr>
+        <th >
+            Descripcion
+        </th>
+        <th>
+            Observaciones
+        </th>
+        <th>
+            Opciones
+        </th>
+    </tr>
+    @foreach(var i in std)
+            {
+                <tr>
+                    <td>
+                        @i.Descripcion
+                    </td>
+                    <td>
+                        @i.Observaciones
+                    </td>
+                    <td>
+                        @Html.ActionLink("Eliminar", "DeleteDetalle", new { id = i.id_solicitud_transporte_detalle }, new {@class= "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+</table>
+<script>
+    document.getElementById("Descripcion").value = "";
+    document.getElementById("Observaciones").value = "";
+</script>

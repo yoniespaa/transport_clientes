@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TransPortModelStoreContainer" CdmEntityContainer="TransPortEntities">
+    <EntitySetMapping Name="Usuarios_Externos">
+      <EntityTypeMapping TypeName="TransPortModel.Usuarios_Externos">
+        <MappingFragment StoreEntitySet="Usuarios_Externos">
+          <ScalarProperty Name="id_usuario_externo" ColumnName="id_usuario_externo" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="id_usuario_creacion" ColumnName="id_usuario_creacion" />
+          <ScalarProperty Name="id_usuario_modificacion" ColumnName="id_usuario_modificacion" />
+          <ScalarProperty Name="id_usuario_eliminacion" ColumnName="id_usuario_eliminacion" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="fecha_modificacio" ColumnName="fecha_modificacio" />
+          <ScalarProperty Name="fecha_eliminacion" ColumnName="fecha_eliminacion" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="TransPortModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="nombre_cliente" ColumnName="nombre_cliente" />
+          <ScalarProperty Name="nit" ColumnName="nit" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="id_usuario_creacion" ColumnName="id_usuario_creacion" />
+          <ScalarProperty Name="id_usuario_modificacion" ColumnName="id_usuario_modificacion" />
+          <ScalarProperty Name="id_usuario_eliminacion" ColumnName="id_usuario_eliminacion" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="fecha_modificacio" ColumnName="fecha_modificacio" />
+          <ScalarProperty Name="fecha_eliminacion" ColumnName="fecha_eliminacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pilotos">
+      <EntityTypeMapping TypeName="TransPortModel.Pilotos">
+        <MappingFragment StoreEntitySet="Pilotos">
+          <ScalarProperty Name="id_piloto" ColumnName="id_piloto" />
+          <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="id_usuario_creacion" ColumnName="id_usuario_creacion" />
+          <ScalarProperty Name="id_usuario_modificacion" ColumnName="id_usuario_modificacion" />
+          <ScalarProperty Name="id_usuario_eliminacion" ColumnName="id_usuario_eliminacion" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="fecha_modificacio" ColumnName="fecha_modificacio" />
+          <ScalarProperty Name="fecha_eliminacion" ColumnName="fecha_eliminacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puntos">
+      <EntityTypeMapping TypeName="TransPortModel.Puntos">
+        <MappingFragment StoreEntitySet="Puntos">
+          <ScalarProperty Name="id_punto" ColumnName="id_punto" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="id_usuario_creacion" ColumnName="id_usuario_creacion" />
+          <ScalarProperty Name="id_usuario_modificacion" ColumnName="id_usuario_modificacion" />
+          <ScalarProperty Name="id_usuario_eliminacion" ColumnName="id_usuario_eliminacion" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="fecha_modificacio" ColumnName="fecha_modificacio" />
+          <ScalarProperty Name="fecha_eliminacion" ColumnName="fecha_eliminacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitud_Estado">
+      <EntityTypeMapping TypeName="TransPortModel.Solicitud_Estado">
+        <MappingFragment StoreEntitySet="Solicitud_Estado">
+          <ScalarProperty Name="id_estado_solicitud" ColumnName="id_estado_solicitud" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitudes_Transporte">
+      <EntityTypeMapping TypeName="TransPortModel.Solicitudes_Transporte">
+        <MappingFragment StoreEntitySet="Solicitudes_Transporte">
+          <ScalarProperty Name="id_solicitudes_transporte" ColumnName="id_solicitudes_transporte" />
+          <ScalarProperty Name="id_estado_solicitud" ColumnName="id_estado_solicitud" />
+          <ScalarProperty Name="id_piloto" ColumnName="id_piloto" />
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="id_punto_origen" ColumnName="id_punto_origen" />
+          <ScalarProperty Name="id_punto_destino" ColumnName="id_punto_destino" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="id_usuario_creacion" ColumnName="id_usuario_creacion" />
+          <ScalarProperty Name="id_usuario_modificacion" ColumnName="id_usuario_modificacion" />
+          <ScalarProperty Name="id_usuario_eliminacion" ColumnName="id_usuario_eliminacion" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+          <ScalarProperty Name="fecha_eliminacion" ColumnName="fecha_eliminacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Solicitudes_Transporte_Detalle">
+      <EntityTypeMapping TypeName="TransPortModel.Solicitudes_Transporte_Detalle">
+        <MappingFragment StoreEntitySet="Solicitudes_Transporte_Detalle">
+          <ScalarProperty Name="id_solicitud_transporte_detalle" ColumnName="id_solicitud_transporte_detalle" />
+          <ScalarProperty Name="id_solicitud_transporte" ColumnName="id_solicitud_transporte" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="eliminado" ColumnName="eliminado" />
+          <ScalarProperty Name="id_usuario_creacion" ColumnName="id_usuario_creacion" />
+          <ScalarProperty Name="id_usuario_modificacion" ColumnName="id_usuario_modificacion" />
+          <ScalarProperty Name="id_usuario_eliminacion" ColumnName="id_usuario_eliminacion" />
+          <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+          <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+          <ScalarProperty Name="fecha_eliminacion" ColumnName="fecha_eliminacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

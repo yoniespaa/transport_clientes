@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TransPortModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Usuarios_Externos">
+    <Key>
+      <PropertyRef Name="id_usuario_externo" />
+    </Key>
+    <Property Name="id_usuario_externo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_usuario" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre_completo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="id_cliente" Type="Int32" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="eliminado" Type="Boolean" />
+    <Property Name="id_usuario_creacion" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario_modificacion" Type="Int32" />
+    <Property Name="id_usuario_eliminacion" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_modificacio" Type="DateTime" Precision="3" />
+    <Property Name="fecha_eliminacion" Type="DateTime" Precision="3" />
+    <Property Name="password" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK__Usuarios___id_cl__65C116E7" FromRole="Usuarios_Externos" ToRole="Clientes" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="id_cliente" />
+    </Key>
+    <Property Name="id_cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_cliente" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="nit" Type="Int32" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="eliminado" Type="Boolean" Nullable="false" />
+    <Property Name="id_usuario_creacion" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario_modificacion" Type="Int32" />
+    <Property Name="id_usuario_eliminacion" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_modificacio" Type="DateTime" Precision="3" />
+    <Property Name="fecha_eliminacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Usuarios_Externos" Relationship="Self.FK__Usuarios___id_cl__65C116E7" FromRole="Clientes" ToRole="Usuarios_Externos" />
+    <NavigationProperty Name="Puntos" Relationship="Self.FK__Puntos__id_clien__038683F8" FromRole="Clientes" ToRole="Puntos" />
+    <NavigationProperty Name="Solicitudes_Transporte" Relationship="Self.FK__Solicitud__id_cl__1E3A7A34" FromRole="Clientes" ToRole="Solicitudes_Transporte" />
+  </EntityType>
+  <EntityType Name="Pilotos">
+    <Key>
+      <PropertyRef Name="id_piloto" />
+    </Key>
+    <Property Name="id_piloto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre_completo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre_usuario" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="pass" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="eliminado" Type="Boolean" Nullable="false" />
+    <Property Name="id_usuario_creacion" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario_modificacion" Type="Int32" />
+    <Property Name="id_usuario_eliminacion" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_modificacio" Type="DateTime" Precision="3" />
+    <Property Name="fecha_eliminacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Solicitudes_Transporte" Relationship="Self.FK__Solicitud__id_pi__38EE7070" FromRole="Pilotos" ToRole="Solicitudes_Transporte" />
+  </EntityType>
+  <EntityType Name="Puntos">
+    <Key>
+      <PropertyRef Name="id_punto" />
+    </Key>
+    <Property Name="id_punto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_cliente" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="eliminado" Type="Boolean" Nullable="false" />
+    <Property Name="id_usuario_creacion" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario_modificacion" Type="Int32" />
+    <Property Name="id_usuario_eliminacion" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_modificacio" Type="DateTime" Precision="3" />
+    <Property Name="fecha_eliminacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK__Puntos__id_clien__038683F8" FromRole="Puntos" ToRole="Clientes" />
+    <NavigationProperty Name="Solicitudes_Transporte" Relationship="Self.FK__Solicitud__id_pu__1F2E9E6D" FromRole="Puntos" ToRole="Solicitudes_Transporte" />
+    <NavigationProperty Name="Solicitudes_Transporte1" Relationship="Self.FK__Solicitud__id_pu__2022C2A6" FromRole="Puntos" ToRole="Solicitudes_Transporte" />
+  </EntityType>
+  <EntityType Name="Solicitud_Estado">
+    <Key>
+      <PropertyRef Name="id_estado_solicitud" />
+    </Key>
+    <Property Name="id_estado_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="estado" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Solicitudes_Transporte" Relationship="Self.FK__Solicitud__id_es__1D4655FB" FromRole="Solicitud_Estado" ToRole="Solicitudes_Transporte" />
+  </EntityType>
+  <EntityType Name="Solicitudes_Transporte">
+    <Key>
+      <PropertyRef Name="id_solicitudes_transporte" />
+    </Key>
+    <Property Name="id_solicitudes_transporte" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_estado_solicitud" Type="Int32" Nullable="false" />
+    <Property Name="id_piloto" Type="Int32" />
+    <Property Name="id_cliente" Type="Int32" Nullable="false" />
+    <Property Name="id_punto_origen" Type="Int32" Nullable="false" />
+    <Property Name="id_punto_destino" Type="Int32" Nullable="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="eliminado" Type="Boolean" Nullable="false" />
+    <Property Name="id_usuario_creacion" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario_modificacion" Type="Int32" />
+    <Property Name="id_usuario_eliminacion" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="3" />
+    <Property Name="fecha_eliminacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK__Solicitud__id_cl__1E3A7A34" FromRole="Solicitudes_Transporte" ToRole="Clientes" />
+    <NavigationProperty Name="Pilotos" Relationship="Self.FK__Solicitud__id_pi__38EE7070" FromRole="Solicitudes_Transporte" ToRole="Pilotos" />
+    <NavigationProperty Name="Puntos" Relationship="Self.FK__Solicitud__id_pu__1F2E9E6D" FromRole="Solicitudes_Transporte" ToRole="Puntos" />
+    <NavigationProperty Name="Puntos1" Relationship="Self.FK__Solicitud__id_pu__2022C2A6" FromRole="Solicitudes_Transporte" ToRole="Puntos" />
+    <NavigationProperty Name="Solicitud_Estado" Relationship="Self.FK__Solicitud__id_es__1D4655FB" FromRole="Solicitudes_Transporte" ToRole="Solicitud_Estado" />
+    <NavigationProperty Name="Solicitudes_Transporte_Detalle" Relationship="Self.FK__Solicitud__id_so__408F9238" FromRole="Solicitudes_Transporte" ToRole="Solicitudes_Transporte_Detalle" />
+  </EntityType>
+  <EntityType Name="Solicitudes_Transporte_Detalle">
+    <Key>
+      <PropertyRef Name="id_solicitud_transporte_detalle" />
+    </Key>
+    <Property Name="id_solicitud_transporte_detalle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_solicitud_transporte" Type="Int32" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Observaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="activo" Type="Boolean" Nullable="false" />
+    <Property Name="eliminado" Type="Boolean" Nullable="false" />
+    <Property Name="id_usuario_creacion" Type="Int32" Nullable="false" />
+    <Property Name="id_usuario_modificacion" Type="Int32" />
+    <Property Name="id_usuario_eliminacion" Type="Int32" />
+    <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fecha_modificacion" Type="DateTime" Precision="3" />
+    <Property Name="fecha_eliminacion" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Solicitudes_Transporte" Relationship="Self.FK__Solicitud__id_so__408F9238" FromRole="Solicitudes_Transporte_Detalle" ToRole="Solicitudes_Transporte" />
+  </EntityType>
+  <Association Name="FK__Usuarios___id_cl__65C116E7">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Usuarios_Externos" Type="Self.Usuarios_Externos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="Usuarios_Externos">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Puntos__id_clien__038683F8">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Puntos" Type="Self.Puntos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="Puntos">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Solicitud__id_cl__1E3A7A34">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+    <End Role="Solicitudes_Transporte" Type="Self.Solicitudes_Transporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="id_cliente" />
+      </Principal>
+      <Dependent Role="Solicitudes_Transporte">
+        <PropertyRef Name="id_cliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Solicitud__id_pi__38EE7070">
+    <End Role="Pilotos" Type="Self.Pilotos" Multiplicity="0..1" />
+    <End Role="Solicitudes_Transporte" Type="Self.Solicitudes_Transporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pilotos">
+        <PropertyRef Name="id_piloto" />
+      </Principal>
+      <Dependent Role="Solicitudes_Transporte">
+        <PropertyRef Name="id_piloto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Solicitud__id_pu__1F2E9E6D">
+    <End Role="Puntos" Type="Self.Puntos" Multiplicity="1" />
+    <End Role="Solicitudes_Transporte" Type="Self.Solicitudes_Transporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puntos">
+        <PropertyRef Name="id_punto" />
+      </Principal>
+      <Dependent Role="Solicitudes_Transporte">
+        <PropertyRef Name="id_punto_origen" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Solicitud__id_pu__2022C2A6">
+    <End Role="Puntos" Type="Self.Puntos" Multiplicity="1" />
+    <End Role="Solicitudes_Transporte" Type="Self.Solicitudes_Transporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puntos">
+        <PropertyRef Name="id_punto" />
+      </Principal>
+      <Dependent Role="Solicitudes_Transporte">
+        <PropertyRef Name="id_punto_destino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Solicitud__id_es__1D4655FB">
+    <End Role="Solicitud_Estado" Type="Self.Solicitud_Estado" Multiplicity="1" />
+    <End Role="Solicitudes_Transporte" Type="Self.Solicitudes_Transporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solicitud_Estado">
+        <PropertyRef Name="id_estado_solicitud" />
+      </Principal>
+      <Dependent Role="Solicitudes_Transporte">
+        <PropertyRef Name="id_estado_solicitud" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Solicitud__id_so__408F9238">
+    <End Role="Solicitudes_Transporte" Type="Self.Solicitudes_Transporte" Multiplicity="1" />
+    <End Role="Solicitudes_Transporte_Detalle" Type="Self.Solicitudes_Transporte_Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Solicitudes_Transporte">
+        <PropertyRef Name="id_solicitudes_transporte" />
+      </Principal>
+      <Dependent Role="Solicitudes_Transporte_Detalle">
+        <PropertyRef Name="id_solicitud_transporte" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TransPortEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Usuarios_Externos" EntityType="Self.Usuarios_Externos" />
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+    <EntitySet Name="Pilotos" EntityType="Self.Pilotos" />
+    <EntitySet Name="Puntos" EntityType="Self.Puntos" />
+    <EntitySet Name="Solicitud_Estado" EntityType="Self.Solicitud_Estado" />
+    <EntitySet Name="Solicitudes_Transporte" EntityType="Self.Solicitudes_Transporte" />
+    <EntitySet Name="Solicitudes_Transporte_Detalle" EntityType="Self.Solicitudes_Transporte_Detalle" />
+    <AssociationSet Name="FK__Usuarios___id_cl__65C116E7" Association="Self.FK__Usuarios___id_cl__65C116E7">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Usuarios_Externos" EntitySet="Usuarios_Externos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Puntos__id_clien__038683F8" Association="Self.FK__Puntos__id_clien__038683F8">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Puntos" EntitySet="Puntos" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Solicitud__id_cl__1E3A7A34" Association="Self.FK__Solicitud__id_cl__1E3A7A34">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Solicitudes_Transporte" EntitySet="Solicitudes_Transporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Solicitud__id_pi__38EE7070" Association="Self.FK__Solicitud__id_pi__38EE7070">
+      <End Role="Pilotos" EntitySet="Pilotos" />
+      <End Role="Solicitudes_Transporte" EntitySet="Solicitudes_Transporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Solicitud__id_pu__1F2E9E6D" Association="Self.FK__Solicitud__id_pu__1F2E9E6D">
+      <End Role="Puntos" EntitySet="Puntos" />
+      <End Role="Solicitudes_Transporte" EntitySet="Solicitudes_Transporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Solicitud__id_pu__2022C2A6" Association="Self.FK__Solicitud__id_pu__2022C2A6">
+      <End Role="Puntos" EntitySet="Puntos" />
+      <End Role="Solicitudes_Transporte" EntitySet="Solicitudes_Transporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Solicitud__id_es__1D4655FB" Association="Self.FK__Solicitud__id_es__1D4655FB">
+      <End Role="Solicitud_Estado" EntitySet="Solicitud_Estado" />
+      <End Role="Solicitudes_Transporte" EntitySet="Solicitudes_Transporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Solicitud__id_so__408F9238" Association="Self.FK__Solicitud__id_so__408F9238">
+      <End Role="Solicitudes_Transporte" EntitySet="Solicitudes_Transporte" />
+      <End Role="Solicitudes_Transporte_Detalle" EntitySet="Solicitudes_Transporte_Detalle" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

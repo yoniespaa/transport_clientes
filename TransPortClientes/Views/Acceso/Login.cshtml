@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Bienvenido a TransPort Clientes</h2>
+
+@using (Html.BeginForm("Login", "Acceso", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div>
+                <label>Usuario:</label>
+                <input class="form-control" name="user" />
+            </div>
+            <div>
+                <label>Contraseña:</label>
+                <input class="form-control" name="pass" />
+            </div><br />
+            <div>
+                <input type="submit" value="Entrar" class="btn btn-success" />
+            </div>
+        </div>
+
+    </div>
+}
